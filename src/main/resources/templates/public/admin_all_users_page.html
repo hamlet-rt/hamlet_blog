@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="fragments/head_fragment :: head('Админ пользователи')"></div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<div class="main">
+    <form th:action="@{/admin/users}" method="get" class="adminUserRoleFilter">
+        <div>
+            <select name="userRoleId" class="userRoleSelect">
+                <option value="1">Администраторы</option>
+                <option value="2">Модераторы</option>
+                <option value="3">Пользователи</option>
+                <option value="4">Заблокированные</option>
+            </select>
+            <button type="submit" class="userRoleSelectButton">Показать</button>
+        </div>
+    </form>
+    <form th:action="@{/admin/add_role}" method="post" th:each="user : ${userList}"
+          class="adminUserRoleForm2">
+        <p th:text="${user.name + ' ' + user.surname}"></p>
+        <input type="hidden" name="user_id" th:value="${user.id}">
+        <select name="user_role" class="userRoleSelect2">
+            <option th:each="userRole : ${userRoleList}" th:value="${userRole.id}"
+                    th:text="${userRole.name}" th:selected="${userRole.id == user.userRole.id}"></option>
+        </select>
+        <button type="submit" class="adminSubmitButtons">Подтвердить</button>
+    </form>
+</div>
+</body>
+</html>

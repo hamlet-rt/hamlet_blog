@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="fragments/head_fragment :: head('Регистрация')"></div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<form th:action="@{/registration}" method="post" class="registration_form">
+    <div class="main">
+        <p class="headLine">Регистрация</p>
+        <div class="registrationArea">
+            <p class="registrationNotes">Логин</p>
+            <input type="text" name="login" placeholder="Введите логин" aria-label="Логин" class="registrationInputs">
+            <p class="registrationNotes">Пароль</p>
+            <input type="password" name="password" placeholder="Введите пароль" aria-label="Пароль"
+                   class="registrationInputs">
+            <p class="registrationNotes">Имя</p>
+            <input type="text" name="firstName" placeholder="Имя" aria-label="Введите имя" class="registrationInputs">
+            <p class="registrationNotes">Фамилия</p>
+            <input type="text" name="lastName" placeholder="Фамилия" aria-label="Введите фамилию"
+                   class="registrationInputs">
+            <button type="submit" class="registrationButton">Зарегистрироваться</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

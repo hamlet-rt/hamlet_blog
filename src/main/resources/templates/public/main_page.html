@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="fragments/head_fragment :: head('Главная страница')"></div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<div class="main">
+    <p class="headLine">Статьи</p>
+    <div class="articlesShow">
+        <div th:each="articles : ${articleList}" class="selectArticle">
+            <a th:href="@{'/articles/show/' + ${articles.id}}" th:text="${articles.heading}"
+               class="articleTitle"></a>
+            <div th:text="${'Автор: ' + articles.user.name + ' ' + articles.user.surname}" class="articleAuthor"></div>
+            <div th:text="${articles.text}"
+                 class="articleText"></div>
+            <div th:text="${'Дата публикации: ' + articles.date}" class="articleDateOfPublish"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<div th:replace="fragments/head_fragment :: head('Админ статьи')">
+</div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<div class="main">
+    <div class="articleStatusDiv">
+        <form th:action="@{/admin/article_list}" method="get">
+            <select name="articleStatus" class="articleStatus">
+                <option value="true">Опубликованные</option>
+                <option value="false">Не опубликованные</option>
+            </select>
+            <button type="submit" class="showArticlesSubmitButton">Показать</button>
+        </form>
+    </div>
+    <form th:action="@{/admin/add}" method="post" th:each="articles : ${articleList}"
+          class="adminArticlesPageForm2">
+        <a th:href="@{'/articles/show/' + ${articles.id}}" th:text="${articles.heading}" class="adminArticlesLinks"></a>
+        <input type="hidden" name="article_id" th:value="${articles.id}">
+        <select name="isPublished">
+            <option value="true" th:selected="${articles.isPublished}">Опубликовать</option>
+            <option value="false" th:selected="${!articles.isPublished}">Отклонить</option>
+        </select>
+        <button type="submit" class="adminSubmitButtons">Подтвердить</button>
+    </form>
+</div>
+</body>
+</html>

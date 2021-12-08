@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="fragments/head_fragment :: head('Выбор статьи')"></div>
+<body>
+    <form action="@{/comment/add}" method="get">
+        <select name="category_name">
+            <option th:each="category : ${categoryList}" th:value="${category.id}"
+                    th:text="${category.name}"></option>
+        </select>
+        <select name="user_name">
+            <option th:each="user : ${userList}" th:value="${user.id}"
+                    th:text="${user.name}"></option>
+        </select>
+        <select name="heading">
+            <option th:each="article : ${articleList}" th:value="${article.id}"
+                    th:text="${article.heading}"></option>
+        </select>
+        <textarea name="text" placeholder="Текст" aria-label="Текст"></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<div th:replace="fragments/head_fragment :: head('Все статьи')"></div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<div class="main">
+<form th:action="@{/articles/show/all}" method="get">
+        <p class="headLine">Статьи</p>
+        <div class="border"></div>
+        <div class="articles">
+            <div class="artBlock">
+                <select name="articleStatus" class="selectStatus">
+                    <option value="true">Опубликованные</option>
+                    <option value="false">Не публикованные</option>
+                </select>
+                <button type="submit">Показать</button>
+                <a th:each="article : ${articleList}" th:text="${article.heading}"
+                   th:href="@{'/articles/show/' + ${article.id}}" class="artName"></a>
+            </div>
+            <div class="artDate">
+                <div th:each="article : ${articleList}" th:text="${article.date}"></div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

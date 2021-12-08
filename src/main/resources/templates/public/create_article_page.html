@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="fragments/head_fragment :: head('Создание статьи')"></div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<div class="createArticleMain">
+    <p class="headLine">Написать статью</p>
+    <form th:action="@{/articles/create}" method="post">
+        <div class="articleShow">
+            <p class="newArticleInputs">Заголовок</p>
+            <input type="text" name="heading" aria-label="heading"
+                   class="articleHeading">
+            <p class="headingNote">* Не более 50 символов</p>
+            <p class="newArticleInputs">Категория статьи</p>
+            <select name="category_id" class="newArticleCategory">
+                <option th:each="category : ${categoryList}" th:value="${category.id}"
+                        th:text="${category.name}"></option>
+            </select>
+            <p class="newArticleInputs">Содержание статьи</p>
+            <textarea name="text" placeholder="Текст" aria-label="text" class="articleTextArea"></textarea>
+            <div class="articleButtons">
+                <button type="submit" class="submitNewArticle">Отправить</button>
+                <button type="reset" class="resetNewArticle">Стереть</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

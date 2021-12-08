@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<body>
+<div th:fragment="header" class="header">
+  <div class="container">
+    <h1 class="logo">hamlet_blog</h1>
+    <a th:href="@{/}" class="btn">Главная</a>
+    <a th:href="@{/articles/show/best}" class="btn">Лучшие статьи</a>
+    <th:block sec:authorize="isAuthenticated() && !hasRole('BANNED')">
+      <a th:href="@{/articles/create/}" class="btn">Написать статью</a>
+    </th:block>
+    <div class="right">
+      <th:block sec:authorize="isAnonymous()">
+        <a th:href="@{/login}" class="btn primary">Войти</a>
+        <a th:href="@{/registration}" class="btn primary">Зарегистрироваться</a>
+      </th:block>
+      <th:block th:if="${#authorization.expr('hasRole(''ADMIN'')')}" class="admin_buttons">
+        <a th:href="@{/admin/articles}" class="btn admin">Статьи</a>
+        <a th:href="@{/admin/users}" class="btn admin">Пользователи</a>
+      </th:block>
+      <th:block sec:authorize="isAuthenticated()">
+        <a th:href="@{/profile/show}" class="btn primary">Профиль</a>
+        <a th:href="@{/logout}" class="btn primary">Выйти</a>
+      </th:block>
+    </div>
+  </div>
+</div>
+</body>
+</html>

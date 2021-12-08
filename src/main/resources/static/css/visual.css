@@ -1,0 +1,468 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+body {
+    background-color: lightgray;
+}
+
+/*Header*/
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+}
+
+.admin {
+    color: white;
+    background: cornflowerblue;
+    border: cornflowerblue 1px solid;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.header {
+    background: white;
+    padding: 8px 0;
+    border-bottom: 1px solid darkgray;
+}
+
+.header > .container {
+    display: flex;
+    align-items: center;
+    background: white;
+}
+
+.header .right {
+    margin-left: auto;
+}
+
+.logo {
+    margin-right: 15px;
+    color: white;
+    background: cornflowerblue;
+    border-radius: 3px;
+    font-size: 22px;
+    padding: 5px 5px;
+}
+
+/*general classes*/
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-left: 1px darkgray solid;
+    border-right: 1px darkgray solid;
+    min-height: calc(100vh - 52px)
+}
+
+.headLine{
+    font-size: 24px;
+    margin: 15px auto;
+    font-weight: bold;
+}
+
+.articleTitle{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.articleAuthor{
+    font-size: 13px;
+    color: cornflowerblue;
+}
+
+.articleText{
+    margin: 5px 0;
+}
+
+.articleDateOfPublish{
+    font-style: italic;
+    font-size: 13px;
+    color: gray;
+}
+
+/*Main page*/
+
+.selectArticle{
+    margin: 10px 10px;
+}
+
+/*Create article*/
+
+.createArticleMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-left: 1px darkgray solid;
+    border-right: 1px darkgray solid;
+    min-height: calc(100vh - 52px)
+}
+
+.creatNewArticleText {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.newArticleInputs {
+    font-size: 20px;
+    margin: 10px auto;
+
+}
+
+.articleHeading {
+    width: 700px;
+    padding: 5px 15px;
+}
+
+.headingNote {
+    color: gray;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.newArticleCategory {
+    width: 700px;
+    padding: 5px 320px;
+}
+
+.articleTextArea {
+    width: 700px;
+    height: 350px;
+    padding: 5px 5px;
+}
+
+.articleButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin-top: 10px;
+}
+
+.submitNewArticle {
+    align-items: center;
+    width: 120px;
+    padding: 5px 0;
+    background: #19E126;
+    border: #19E126 1px solid;
+    border-radius: 3px;
+}
+
+.resetNewArticle {
+    align-items: center;
+    width: 120px;
+    padding: 5px 0;
+    background: cornflowerblue;
+    border: cornflowerblue 1px solid;
+    border-radius: 3px;
+}
+
+/*Admin*/
+
+.articleStatusDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.articleStatus {
+    width: 150px;
+    height: 30px;
+    padding: 5px;
+}
+
+.adminArticlesPageForm2 {
+    padding: 5px 10px;
+}
+
+.adminArticlesLinks {
+    text-decoration: none;
+    color: black;
+}
+
+.showArticlesSubmitButton {
+    width: 150px;
+    height: 30px;
+    margin-left: 5px;
+    background: cornflowerblue;
+    border: cornflowerblue 1px solid;
+    color: white;
+    border-radius: 3px;
+}
+
+.adminSubmitButtons {
+    background: cornflowerblue;
+    border: cornflowerblue 1px solid;
+    border-radius: 3px;
+    color: white;
+    padding: 1px 8px;
+}
+
+.adminUserRoleFilter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.userRoleSelect {
+    width: 150px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.userRoleSelectButton {
+    width: 150px;
+    height: 30px;
+    margin-left: 5px;
+    background: cornflowerblue;
+    border: cadetblue 1px solid;
+    color: white;
+    border-radius: 3px;
+}
+
+.adminUserRoleForm2 {
+    display: flex;
+    padding: 5px 10px;
+}
+
+.userRoleSelect2 {
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+/*Profile*/
+
+.profilePersonalInfo {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.profileInfo {
+    padding: 10px;
+    min-height: calc(100vh - 52px);
+}
+
+.personalInfo {
+    margin-bottom: 5px;
+}
+
+.profileMyArticles {
+    margin-top: 18px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.articlesLinks {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin-bottom: 3px;
+}
+
+.articleShow{
+    margin: 5px;
+}
+
+/*Registration*/
+
+.registrationArea {
+    min-height: calc(100vh - 52px)
+}
+
+.registrationText {
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.registration {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.registrationNotes {
+    margin-left: 44px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.registrationInputs {
+    padding: 5px 5px;
+    width: 900px;
+    margin-left: 44px;
+}
+
+.registrationButton {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    margin-left: 44px;
+    align-items: center;
+    width: 175px;
+    padding: 8px 0;
+    background: #19E126;
+    border: #19E126 1px solid;
+    border-radius: 3px;
+}
+
+
+/*Article info*/
+
+.viewArticleInfo {
+    background: lightgray;
+}
+
+.showArticleInfo {
+    margin: auto 10px;
+}
+
+.ratingForm {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.averageRatingAndDate {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.ratingValue {
+    margin-left: 13px;
+    width: 40px;
+    height: 27px;
+}
+
+.ratingButton {
+    align-items: center;
+    width: 150px;
+    padding: 5px 0;
+    background: #19E126;
+    border: #19E126 1px solid;
+    border-radius: 3px;
+}
+
+.ratingWasAdded {
+    align-items: center;
+    color: lightgreen;
+    margin-left: 13px;
+    margin-top: 10px;
+    font-size: small;
+
+}
+
+.articleHead {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.articleInfoText {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+.articleAverageRating {
+    font-style: italic;
+    font-size: 15px;
+    color: gray;
+}
+
+.addComment {
+    width: 980px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 2px;
+    margin-left: 10px;
+}
+
+.addCommentForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    font-size: 14px;
+}
+
+.addCommentButtons {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.addCommentButton {
+    align-items: center;
+    width: 150px;
+    padding: 6px 0;
+    background: #19E126;
+    border: #19E126 1px solid;
+    border-radius: 3px;
+}
+
+.resetCommentButton {
+    align-items: center;
+    margin-left: 5px;
+    width: 95px;
+    padding: 6px 0;
+    background: cornflowerblue;
+    border: cornflowerblue 1px solid;
+    border-radius: 3px;
+}
+
+.commentsToArticleText {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.commentInfo {
+    width: 980px;
+    margin-bottom: 12px;
+}
+
+.commentTextArea {
+    width: 930px;
+    height: auto;
+    padding: 5px 5px;
+    margin-top: 5px;
+}
+.commentDiv{
+    margin-left: 10px;
+}

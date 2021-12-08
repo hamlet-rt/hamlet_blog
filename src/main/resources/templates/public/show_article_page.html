@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<div th:replace="fragments/head_fragment :: head('Статья')"></div>
+<body>
+<div th:replace="fragments/header_fragment :: header"></div>
+<div class="main">
+        <h1 class="headLine">Информация о статье</h1>
+        <div class="articleShow">
+            <div th:text="${article.heading}" class="articleTitle"></div>
+            <div th:text="${'Автор: ' + article.user.name + ' ' + article.user.surname}" class="articleAuthor"></div>
+            <div th:text="${article.text}" class="articleText"></div>
+        </div>
+        <div class="rating">
+            <form th:action="@{/ratings/add/}" method="post" class="ratingForm">
+                <div class="averageRatingAndDate">
+                    <div th:text="${'Средний рейтинг: ' + @articleService.getAverageRating(article.id)}"
+                         class="articleAverageRating"></div>
+                    <div th:text="${'Дата публикации: ' + article.date}" class="articleDateOfPublish"></div>
+                </div>
+                <input type="hidden" name="article_id" th:value="${article.id}">
+                <div th:if="${#authorization.expr('isAuthenticated() && !hasRole(''BANNED'')') && !rating}">
+                    <select name="rating" class="ratingValue">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit" class="ratingButton">Поставить рейтинг</button>
+                </div>
+                <div th:if="${#authorization.expr('isAuthenticated() && !hasRole(''BANNED'')') && rating}">
+                    <p class="ratingWasAdded">Рейтинг поставлен</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="addComment">
+            <form th:action="@{/comment/add/}" method="post" class="addCommentForm"
+                  th:if="${#authorization.expr('isAuthenticated() && !hasRole(''BANNED'')')}">
+                <input type="hidden" name="article_id" th:value="${article.id}">
+                <textarea name="text" placeholder="Текст" aria-label="text" class="commentTextArea"></textarea>
+                <div class="addCommentButtons">
+                    <button type="submit" class="addCommentButton">Оставить комментарий</button>
+                    <button type="reset" class="resetCommentButton">Стереть</button>
+                </div>
+            </form>
+        </div>
+    <p class="headLine">Комментарии к статье</p>
+    <div class="commentDiv">
+        <div class="commentInfo" th:each="comment : ${article.getComments()}">
+            <p th:text="${comment.user.name + ' ' + comment.user.surname}" class="articleAuthor"></p>
+            <p th:text="${comment.text}" class="comment"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
